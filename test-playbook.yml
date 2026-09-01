@@ -1,0 +1,8 @@
+- name: Test Tower connectivity
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Display a test message
+      ansible.builtin.debug:
+        msg: "Tower successfully loaded this playbook"
