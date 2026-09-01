@@ -15,7 +15,7 @@
 
 - name: test httpd accessibility
   become: False
-  hosts: localhost
+  hosts: centos9-01
   tasks:
   - name: test httpd access
     uri:
