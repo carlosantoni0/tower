@@ -1,5 +1,5 @@
 ---
-- name: Install, start, and enable httpd
+- name: Install, start, and test httpd
   hosts: centos9-01
   become: true
   gather_facts: false
@@ -31,12 +31,10 @@
         group: root
         mode: "0644"
 
-- name: Test httpd accessibility
-  hosts: localhost
-  gather_facts: false
-
-  tasks:
-    - name: Test HTTP access
+    - name: Test HTTP from Tower
       uri:
         url: http://centos9-01
         status_code: 200
+        return_content: true
+      delegate_to: localhost
+      become: false
